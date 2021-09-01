@@ -25,7 +25,8 @@ https://any-api.com/  api-Key nodig?
 		Puzzel(s):
 		2.a) 	vraag positie op, 
 			beweeg vooruit,
-			vind de uitgang.
+			vind de uitgang,
+			(optioneel voor extra uitdaging: max. aantal stappen).
 		
 		5) Collections
 			- sequences
