@@ -2,7 +2,8 @@ package server.mazes
 
 fun createMazes(): List<Maze> {
     val mazes = mutableListOf<Maze>()
-    mazes.add(generateMaze01())
-    mazes.add(generateMaze02())
+    mazes.add(Maze01())
+    mazes.add(Maze02())
+    mazes.forEach(Maze::reset)
     return mazes
 }

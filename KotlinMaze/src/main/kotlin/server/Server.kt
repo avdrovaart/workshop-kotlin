@@ -38,10 +38,13 @@ fun main() {
                     try {
                         val id = getMazeIdFromCall()
                         val maze = mazes[id]
-                        val info = MazeInfo(maze?.currentPosition(), maze?.allowedDirections(), maze?.info())
-                        call.respond(info)
+                        if (maze != null) {
+                            call.respond(MazeInfo(maze.currentPosition(), maze.allowedDirections(), maze.info(), maze.endOfMaze()))
+                        } else {
+                            call.respond(MazeInfo(null, listOf(), "Onbekend level", false))
+                        }
                     } catch (error: IllegalStateException) {
-                        call.respond(MazeInfo(null, null, error.message))
+                        call.respond(MazeInfo(null, listOf(), error.message ?: "Onbekende fout opgetreden", false))
                     }
                 }
                 post("/{id}/move") {

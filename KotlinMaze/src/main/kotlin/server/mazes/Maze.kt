@@ -4,12 +4,17 @@ import common.Direction
 import common.Position
 import java.util.*
 
-class Maze(val mazeId: UUID, val startPosition: Position, positionInfos: List<PositionInfo>) {
+abstract class Maze(val mazeId: UUID, val startPosition: Position) {
+    private val positionInfos = mutableListOf<PositionInfo>()
     private var currentPosition: Position = startPosition
-    private val positions: Map<Position, PositionInfo> = positionInfos.associateBy { p -> p.position }
+    private val positions = mutableMapOf<Position, PositionInfo>()
 
     fun reset() {
         currentPosition = startPosition
+        positionInfos.clear()
+        positionInfos.addAll(generateMaze())
+        positions.clear()
+        positions.putAll(positionInfos.associateBy { p -> p.position })
     }
 
     fun move(direction: Direction): Boolean {
@@ -26,10 +31,17 @@ class Maze(val mazeId: UUID, val startPosition: Position, positionInfos: List<Po
     }
 
     fun info(): String {
-        return positions[currentPosition]?.info ?: "I don't know where I am. You should probably reset this level."
+        return positions[currentPosition]?.info
+                ?: "Je bent op een vreemde plek beland. Het is beter om de puzzel te resetten want hier kom je niet meer weg."
     }
 
-    fun allowedDirections(): List<Direction>? {
-        return positions[currentPosition]?.allowedDirections
+    fun allowedDirections(): List<Direction> {
+        return positions[currentPosition]?.allowedDirections ?: listOf()
     }
+
+    fun endOfMaze(): Boolean {
+        return positions[currentPosition]?.endOfMaze ?: false
+    }
+
+    abstract fun generateMaze(): List<PositionInfo>
 }

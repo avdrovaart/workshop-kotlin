@@ -5,16 +5,20 @@ https://play.kotlinlang.org/koans/overview
 https://any-api.com/  api-Key nodig?
 
 ## Puzzel functionaliteiten
+
 	Server.kt heeft per puzzel de 'map' en hanteert api endpoints:
 		- getPosition()
 		- move(Direction direction) // enum(Direction.FORWARD, Direction.BACK, Direction.LEFT, Direction.RIGHT)
 		- resetPuzzle() // reset puzzle and player to to position 0.0
 		- solve(Function answer) // de speler kan weer alle kanten op bewegen 
+		- Een trigger functie server-side dat als je op een positie land deze wordt uitgevoerd. Zo zou je een "dynamisch" stukje aan een maze kunnen toevoegen.
+		- Voorkomen van bruteforce oplossingen door een max steps toe te voegen en voordat verplaatst wordt deze te controleren en dan in de response (MazeInfo) ook aangeven dat max aantal stappen zijn bereikt
 	
 	Client.kt 
 		- invulling van de speler	
 
-## Onderwerpen 
+## Onderwerpen
+
 	Kotlin Workshop
 		1) Client aan de praat krijgen
 		
