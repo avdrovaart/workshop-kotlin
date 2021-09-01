@@ -53,7 +53,7 @@ fun generateMaze01(): Maze {
             Maar ja hoeveel het er zijn dat weet niemand......
             Wanneer je een stap hebt gelopen en je de positie info opvraagt dan kan je zien welke richtingen je allemaal mag oplopen.
             Dit zou je kunnen gebruiken tot je aan het eind bent door iedere keer een stap te zetten en vervolgens te kijken of je nog verder kan.
-            if(info.allowedDirections.contains(TOP)) { /*verplaats naar boven*/ } 
+            if(info.allowedDirections!!.contains(Direction.TOP)) { /*verplaats naar boven*/ } 
         """.trimIndent()
     ))
     val j = (0..4).random()
