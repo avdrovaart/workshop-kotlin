@@ -28,4 +28,8 @@ class Maze(val mazeId: UUID, val startPosition: Position, positionInfos: List<Po
     fun info(): String {
         return positions[currentPosition]?.info ?: "I don't know where I am. You should probably reset this level."
     }
+
+    fun allowedDirections(): List<Direction>? {
+        return positions[currentPosition]?.allowedDirections
+    }
 }

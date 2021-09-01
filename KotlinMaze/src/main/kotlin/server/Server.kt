@@ -1,7 +1,7 @@
 package server
 
-import common.*
 import common.GlobalAppSettings
+import common.MazeInfo
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
@@ -13,7 +13,6 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.util.pipeline.*
 import server.mazes.createMazes
-import java.lang.IllegalArgumentException
 import java.util.*
 
 fun main() {
@@ -39,10 +38,10 @@ fun main() {
                     try {
                         val id = getMazeIdFromCall()
                         val maze = mazes[id]
-                        val info = MazeInfo(maze?.currentPosition(), maze?.info())
+                        val info = MazeInfo(maze?.currentPosition(), maze?.allowedDirections(), maze?.info())
                         call.respond(info)
                     } catch (error: IllegalStateException) {
-                        call.respond(MazeInfo(null, error.message))
+                        call.respond(MazeInfo(null, null, error.message))
                     }
                 }
                 post("/{id}/move") {
