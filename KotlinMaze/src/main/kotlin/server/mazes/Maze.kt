@@ -2,9 +2,10 @@ package server.mazes
 
 import common.Direction
 import common.Position
+import server.player.Player
 import java.util.*
 
-abstract class Maze(val mazeId: UUID, val startPosition: Position) {
+abstract class Maze(val mazeId: UUID, val startPosition: Position, var player: Player) {
     private val positionInfos = mutableListOf<PositionInfo>()
     private var currentPosition: Position = startPosition
     private val positions = mutableMapOf<Position, PositionInfo>()
@@ -15,6 +16,7 @@ abstract class Maze(val mazeId: UUID, val startPosition: Position) {
         positionInfos.addAll(generateMaze())
         positions.clear()
         positions.putAll(positionInfos.associateBy { p -> p.position })
+        player.reset()
     }
 
     fun move(direction: Direction): Boolean {
