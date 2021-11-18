@@ -9,7 +9,6 @@ class Player(var stamina: Int) {
 
         fun decrementStamina() {
             stamina = stamina.dec()
-            println("New stamina : $stamina")
         }
     }
 
