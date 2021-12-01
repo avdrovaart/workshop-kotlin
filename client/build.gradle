@@ -1,0 +1,17 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation  project(":common")
+    implementation 'io.ktor:ktor-serialization:1.6.0'
+    implementation 'io.ktor:ktor-client-core:1.6.0'
+    implementation 'io.ktor:ktor-client-apache:1.6.0'
+    implementation 'io.ktor:ktor-client-serialization-jvm:1.6.0'
+    implementation 'io.ktor:ktor-client-json-jvm:1.6.0'
+}
