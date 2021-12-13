@@ -17,6 +17,7 @@ import java.util.*
 
 fun main() {
     embeddedServer(Netty, GlobalAppSettings.port) {
+
         install(ContentNegotiation) {
             json()
         }
@@ -39,6 +40,7 @@ fun main() {
                         val id = getMazeIdFromCall()
                         val maze = mazes[id]
                         if (maze != null) {
+                            println("Found a maze: $maze")
                             call.respond(MazeInfo(maze.currentPosition(), maze.allowedDirections(), maze.info(), maze.endOfMaze()))
                         } else {
                             call.respond(MazeInfo(null, listOf(), "Onbekend level", false))
