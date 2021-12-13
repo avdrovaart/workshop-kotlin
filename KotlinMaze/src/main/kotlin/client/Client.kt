@@ -15,6 +15,7 @@ fun main() {
 fun printInfo(info: MazeInfo) {
     println("=============================================================================")
     println("Huidige positie: ${info.position}")
+    println("Toegestane richtingen: ${info.allowedDirections}")
     println("Extra info: ${info.text}")
     println("=============================================================================")
 }

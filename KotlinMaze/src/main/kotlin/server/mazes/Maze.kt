@@ -5,7 +5,7 @@ import common.Position
 import server.player.Player
 import java.util.*
 
-abstract class Maze(val mazeId: UUID, val startPosition: Position, var player: Player) {
+abstract class Maze(val mazeId: UUID, val startPosition: Position, val player: Player) {
     private val positionInfos = mutableListOf<PositionInfo>()
     private var currentPosition: Position = startPosition
     private val positions = mutableMapOf<Position, PositionInfo>()
