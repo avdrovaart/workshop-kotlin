@@ -18,6 +18,7 @@ import java.util.*
 
 fun main() {
     embeddedServer(Netty, GlobalAppSettings.port) {
+
         install(ContentNegotiation) {
             json()
         }
@@ -45,6 +46,8 @@ fun main() {
                             } else {
                                 call.respond(MazeInfo(null, listOf(), "Je hebt geen energie meer om door te gaan", true))
                             }
+                            println("Found a maze: $maze")
+                            call.respond(MazeInfo(maze.currentPosition(), maze.allowedDirections(), maze.info(), maze.endOfMaze()))
                         } else {
                             call.respond(MazeInfo(null, listOf(), "Onbekend level", false))
                         }
