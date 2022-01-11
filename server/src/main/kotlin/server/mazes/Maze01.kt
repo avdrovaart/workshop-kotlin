@@ -2,9 +2,10 @@ package server.mazes
 
 import common.Direction
 import common.Position
+import server.player.Player
 import java.util.*
 
-class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), common.Position(0, 0)) {
+class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), common.Position(0, 0), Player(15)) {
     override fun generateMaze(): List<PositionInfo> {
         val infos = mutableListOf<PositionInfo>()
         infos.add(PositionInfo( //start

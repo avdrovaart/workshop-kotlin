@@ -12,6 +12,7 @@ import io.ktor.serialization.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.util.pipeline.*
+import org.apache.commons.logging.Log
 import server.mazes.createMazes
 import java.util.*
 
@@ -40,6 +41,11 @@ fun main() {
                         val id = getMazeIdFromCall()
                         val maze = mazes[id]
                         if (maze != null) {
+                            if(maze.player.Statistics().checkStamina()) {
+                                call.respond(MazeInfo(maze.currentPosition(), maze.allowedDirections(), maze.info(), maze.endOfMaze()))
+                            } else {
+                                call.respond(MazeInfo(null, listOf(), "Je hebt geen energie meer om door te gaan", true))
+                            }
                             println("Found a maze: $maze")
                             call.respond(MazeInfo(maze.currentPosition(), maze.allowedDirections(), maze.info(), maze.endOfMaze()))
                         } else {
@@ -53,6 +59,7 @@ fun main() {
                     val id = getMazeIdFromCall()
                     val maze = mazes[id]
                     if (maze?.move(call.receive()) == true) {
+                        maze.player.Statistics().decrementStamina()
                         call.respond(true)
                     } else {
                         call.respond(false)
