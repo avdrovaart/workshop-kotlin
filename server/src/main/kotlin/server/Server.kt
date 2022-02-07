@@ -12,7 +12,6 @@ import io.ktor.serialization.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.util.pipeline.*
-import org.apache.commons.logging.Log
 import server.mazes.createMazes
 import java.util.*
 
