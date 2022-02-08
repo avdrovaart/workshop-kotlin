@@ -25,7 +25,7 @@ abstract class Maze(val mazeId: UUID, val startPosition: Position, val player: P
         if (positionInfo.allowedDirections.contains(direction)) {
             val moveOffsetInfo = positionInfo.offsets[direction]
             if(moveOffsetInfo != null) {
-                currentPosition = moveOffsetInfo.move(currentPosition)
+                currentPosition = moveOffsetInfo.move(direction, currentPosition)
                 extraInfo = moveOffsetInfo.text
             } else {
                 currentPosition = currentPosition.move(direction)
