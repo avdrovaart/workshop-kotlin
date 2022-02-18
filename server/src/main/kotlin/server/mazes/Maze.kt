@@ -43,7 +43,10 @@ abstract class Maze(val mazeId: UUID, val startPosition: Position, val player: P
     fun info(): String {
         val info = positions[currentPosition]
         if(info != null) {
-            return (info.info + "\n" + extraInfo)
+            if(extraInfo == "") {
+                return info.info
+            }
+            return extraInfo + "\n" + info.info
         }
         return "Je bent op een vreemde plek beland. Het is beter om de puzzel te resetten want hier kom je niet meer weg."
     }
