@@ -1,13 +1,13 @@
 package client
 
 import common.Direction
-import common.MazeInfo
 import common.GlobalAppSettings
-import io.ktor.http.*
+import common.MazeInfo
 import io.ktor.client.*
+import io.ktor.client.features.json.*
+import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
-import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 
 

@@ -2,6 +2,7 @@ package server.player
 
 class Player(var stamina: Int) {
     private val initialStamina = stamina;
+
     inner class Statistics {
         fun checkStamina(): Boolean {
             return stamina > 0

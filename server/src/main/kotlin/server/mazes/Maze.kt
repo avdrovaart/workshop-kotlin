@@ -24,7 +24,7 @@ abstract class Maze(val mazeId: UUID, val startPosition: Position, val player: P
         val positionInfo: PositionInfo = positions[currentPosition] ?: return false
         if (positionInfo.allowedDirections.contains(direction)) {
             val moveOffsetInfo = positionInfo.offsets[direction]
-            if(moveOffsetInfo != null) {
+            if (moveOffsetInfo != null) {
                 currentPosition = moveOffsetInfo.move(direction, currentPosition)
                 extraInfo = moveOffsetInfo.text
             } else {
@@ -42,8 +42,8 @@ abstract class Maze(val mazeId: UUID, val startPosition: Position, val player: P
 
     fun info(): String {
         val info = positions[currentPosition]
-        if(info != null) {
-            if(extraInfo == "") {
+        if (info != null) {
+            if (extraInfo == "") {
                 return info.info
             }
             return extraInfo + "\n" + info.info
