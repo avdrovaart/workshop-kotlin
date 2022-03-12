@@ -1,4 +1,4 @@
-package server
+package server.model
 
 import common.Direction
 import common.Position

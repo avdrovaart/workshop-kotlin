@@ -21,6 +21,14 @@ class ApiSync {
             return runBlocking { ApiAsync.move(mazeId, direction) }
         }
 
+        fun use(mazeId: String, item: String): Boolean {
+            return runBlocking { ApiAsync.use(mazeId, item) }
+        }
+
+        fun solve(mazeId: String, input: String): Boolean {
+            return runBlocking { ApiAsync.solve(mazeId, input) }
+        }
+
         fun resetMaze(mazeId: String) {
             runBlocking { ApiAsync.resetMaze(mazeId) }
         }
@@ -41,6 +49,14 @@ class ApiAsync {
                 contentType(ContentType.Application.Json)
                 body = direction
             }
+        }
+
+        suspend fun use(mazeId: String, item: String): Boolean {
+            return jsonClient.post("$endpoint/$mazeId/use/$item")
+        }
+
+        suspend fun solve(mazeId: String, input: String): Boolean {
+            return jsonClient.post("$endpoint/$mazeId/solve/$input")
         }
 
         suspend fun resetMaze(mazeId: String) {
