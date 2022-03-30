@@ -9,6 +9,7 @@ abstract class Maze(val mazeId: UUID, val startPosition: Position, val player: P
     private val positionInfos = mutableListOf<PositionInfo>()
     private var currentPosition: Position = startPosition
     private val positions = mutableMapOf<Position, PositionInfo>()
+    private var extraInfo = ""
 
     fun reset() {
         currentPosition = startPosition
@@ -22,7 +23,14 @@ abstract class Maze(val mazeId: UUID, val startPosition: Position, val player: P
     fun move(direction: Direction): Boolean {
         val positionInfo: PositionInfo = positions[currentPosition] ?: return false
         if (positionInfo.allowedDirections.contains(direction)) {
-            currentPosition = currentPosition.move(direction)
+            val moveOffsetInfo = positionInfo.offsets[direction]
+            if (moveOffsetInfo != null) {
+                currentPosition = moveOffsetInfo.move(direction, currentPosition)
+                extraInfo = moveOffsetInfo.text
+            } else {
+                currentPosition = currentPosition.move(direction)
+                extraInfo = ""
+            }
             return true
         }
         return false
@@ -33,8 +41,14 @@ abstract class Maze(val mazeId: UUID, val startPosition: Position, val player: P
     }
 
     fun info(): String {
-        return positions[currentPosition]?.info
-                ?: "Je bent op een vreemde plek beland. Het is beter om de puzzel te resetten want hier kom je niet meer weg."
+        val info = positions[currentPosition]
+        if (info != null) {
+            if (extraInfo == "") {
+                return info.info
+            }
+            return extraInfo + "\n" + info.info
+        }
+        return "Je bent op een vreemde plek beland. Het is beter om de puzzel te resetten want hier kom je niet meer weg."
     }
 
     fun allowedDirections(): List<Direction> {
