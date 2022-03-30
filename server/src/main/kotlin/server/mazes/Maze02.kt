@@ -60,7 +60,7 @@ class Maze02 : Maze(UUID.fromString("6bec1ac2-ad66-4a9e-aff7-52581d1008e7"), com
             PositionInfo(
                 Position(2, 1),
                 setOf(Direction.LEFT),
-                "Yes je hebt het einde gehaald, dit is de code voor het volgende level: ",
+                "Yes je hebt het einde gehaald, dit is de code voor het volgende level: 264cc5b8-b00c-11ec-b909-0242ac120002",
                 true
             )
         )
