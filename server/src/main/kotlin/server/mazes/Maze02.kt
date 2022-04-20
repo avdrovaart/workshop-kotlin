@@ -14,18 +14,18 @@ class Maze02 : Maze(UUID.fromString("6bec1ac2-ad66-4a9e-aff7-52581d1008e7"), com
         val infos = mutableListOf<PositionInfo>()
         infos.add(
             PositionInfo( //start
-                Position(0, 0), setOf(Direction.TOP),
+                Position(0, 0), setOf(Direction.NORTH),
                 """
                     Welkom in dit tweede level, dit is een klein level maar bevat puzzles.
                     Het lukt je vast wel om ze op te lossen.
                 """.trimMargin()
             )
         )
-        val puzzle1 = InventoryPuzzle(setOf(Direction.RIGHT), "key")
+        val puzzle1 = InventoryPuzzle(setOf(Direction.EAST), "key")
         infos.add(
             PositionInfo(
                 Position(0, 1),
-                setOf(Direction.TOP, Direction.BOTTOM),
+                setOf(Direction.NORTH, Direction.SOUTH),
                 "Er zit hier rechts een deur maar die zit op slot.",
                 puzzle = puzzle1
             )
@@ -33,13 +33,13 @@ class Maze02 : Maze(UUID.fromString("6bec1ac2-ad66-4a9e-aff7-52581d1008e7"), com
         infos.add(
             PositionInfo(
                 Position(0, 2),
-                setOf(Direction.BOTTOM),
+                setOf(Direction.SOUTH),
                 "Hier ligt een sleutel, deze heb je opgepakt en zit nu in je inventory.",
                 items = setOf("key")
             )
         )
         val puzzle2 = AnswerPuzzle(
-            setOf(Direction.RIGHT), "3654", """
+            setOf(Direction.EAST), "3654", """
             De cijfer code is het antwoord van de volgende sommen:
                 2 + 1 =
                 2 x 3 = 
@@ -51,7 +51,7 @@ class Maze02 : Maze(UUID.fromString("6bec1ac2-ad66-4a9e-aff7-52581d1008e7"), com
         infos.add(
             PositionInfo(
                 Position(1, 1),
-                setOf(Direction.LEFT),
+                setOf(Direction.WEST),
                 "Hmmm, om verder te komen moet je een cijfer code opgeven.",
                 puzzle = puzzle2
             )
@@ -59,7 +59,7 @@ class Maze02 : Maze(UUID.fromString("6bec1ac2-ad66-4a9e-aff7-52581d1008e7"), com
         infos.add(
             PositionInfo(
                 Position(2, 1),
-                setOf(Direction.LEFT),
+                setOf(Direction.WEST),
                 "Yes je hebt het einde gehaald, dit is de code voor het volgende level: 264cc5b8-b00c-11ec-b909-0242ac120002",
                 true
             )

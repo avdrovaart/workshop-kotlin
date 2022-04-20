@@ -11,7 +11,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         val infos = mutableListOf<PositionInfo>()
         infos.add(
             PositionInfo( //start
-                Position(0, 0), setOf(Direction.TOP),
+                Position(0, 0), setOf(Direction.NORTH),
                 """
             Welkom het is gelukt om de server te starten en de client er mee te laten praten. 
             
@@ -27,7 +27,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
             Dit is het eerste level. Om naar de uitgang te komen moet je in dit level een aantal stappen in verschillende richtingen verplaatsen.
             Dit kan je doen door aan de client een regel toe te voegen die de server aanspoort om je te verplaatsen.
             Als eerste moet er een stap naar boven gedaan worden.
-            Voor het gemak: ApiSync.move(mazeId, Direction.TOP)
+            Voor het gemak: ApiSync.move(mazeId, Direction.NORTH)
             Vervolgens wil je de info weten van de positie waar je bent dus vraag je die op: ApiSync.getCurrentPosition(mazeId)
             En vergeet niet om de informatie van de nieuwe positie te printen naar de console via de printInfo functie.
             Een voorbeeldje staal al in de Client.kt
@@ -36,20 +36,20 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //stap1
-                Position(0, 1), setOf(Direction.BOTTOM, Direction.RIGHT),
+                Position(0, 1), setOf(Direction.SOUTH, Direction.EAST),
                 """
             Je hebt je eerste stapje gezet. Hoera!!!!
             Nu moet je 4 stappen naar rechts.
-            Dit kan je doen door: ApiSync.move(mazeId, Direction.RIGHT) 4x achter elkaar te zetten maar mooier is een for-loop.
+            Dit kan je doen door: ApiSync.move(mazeId, Direction.EAST) 4x achter elkaar te zetten maar mooier is een for-loop.
             for(i in 1..4) {
-                ApiSync.move(mazeId, Direction.RIGHT)
+                ApiSync.move(mazeId, Direction.EAST)
             }
         """.trimIndent()
             )
         )
         infos.add(
             PositionInfo( //stap2
-                Position(1, 1), setOf(Direction.LEFT, Direction.RIGHT),
+                Position(1, 1), setOf(Direction.WEST, Direction.EAST),
                 """
             Nog 3 stappen naar rechts te gaan.
         """.trimIndent()
@@ -57,7 +57,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //stap3
-                Position(2, 1), setOf(Direction.LEFT, Direction.RIGHT),
+                Position(2, 1), setOf(Direction.WEST, Direction.EAST),
                 """
             Nog 2 stappen naar rechts te gaan.
         """.trimIndent()
@@ -65,7 +65,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //stap4
-                Position(3, 1), setOf(Direction.LEFT, Direction.RIGHT),
+                Position(3, 1), setOf(Direction.WEST, Direction.EAST),
                 """
             Nog 1 stap naar rechts te gaan.
         """.trimIndent()
@@ -73,13 +73,13 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //stap5
-                Position(4, 1), setOf(Direction.LEFT, Direction.TOP),
+                Position(4, 1), setOf(Direction.WEST, Direction.NORTH),
                 """
             Yes je bent weer op een beslis punt. Nu moet je een aantal stappen omhoog gaan lopen (ergens tussen de 1 en 6). 
             Maar ja hoeveel het er zijn dat weet niemand......
             Wanneer je een stap hebt gelopen en je de positie info opvraagt dan kan je zien welke richtingen je allemaal mag oplopen.
             Dit zou je kunnen gebruiken tot je aan het eind bent door iedere keer een stap te zetten en vervolgens te kijken of je nog verder kan.
-            if(info.allowedDirections.contains(Direction.TOP)) { /*verplaats naar boven*/ } else { /*stoppen met de loop*/ }
+            if(info.allowedDirections.contains(Direction.NORTH)) { /*verplaats naar boven*/ } else { /*stoppen met de loop*/ }
             Hierbij is info de opgehaalde positie info.  
         """.trimIndent()
             )
@@ -88,7 +88,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         for (i in 0..j) {
             infos.add(
                 PositionInfo( //stap
-                    Position(4, 2 + i), setOf(Direction.BOTTOM, Direction.TOP),
+                    Position(4, 2 + i), setOf(Direction.SOUTH, Direction.NORTH),
                     """
             Nog meer stappen te gaan
         """.trimIndent()
@@ -98,7 +98,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         val row = 3 + j
         infos.add(
             PositionInfo( //stap 6
-                Position(4, row), setOf(Direction.BOTTOM, Direction.LEFT, Direction.RIGHT),
+                Position(4, row), setOf(Direction.SOUTH, Direction.WEST, Direction.EAST),
                 """
             Je bent beland op een splitsing. Nu moet je een keuze gaan maken of je links of rechts af gaat.
             Aan het eind van de gang is het einde van het level.
@@ -108,7 +108,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //stap 6 l1
-                Position(3, row), setOf(Direction.LEFT, Direction.RIGHT),
+                Position(3, row), setOf(Direction.WEST, Direction.EAST),
                 """
             Dit is (nog) niet het einde van deze gang.
         """.trimIndent()
@@ -116,7 +116,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //stap 6 l2
-                Position(2, row), setOf(Direction.LEFT, Direction.RIGHT),
+                Position(2, row), setOf(Direction.WEST, Direction.EAST),
                 """
             Hmmm dit is (nog) niet het einde, maar je kan nog verder.
         """.trimIndent()
@@ -124,7 +124,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //stap 6 l3
-                Position(1, row), setOf(Direction.RIGHT),
+                Position(1, row), setOf(Direction.EAST),
                 """
             Je hebt de verkeerde keuze gemaakt want dit is een doodlopende weg en niet het einde.
             Had je toch de andere kant moeten kiezen. Dat wordt terug lopen.
@@ -133,7 +133,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //stap 6 r1
-                Position(5, row), setOf(Direction.LEFT, Direction.RIGHT),
+                Position(5, row), setOf(Direction.WEST, Direction.EAST),
                 """
             Hmmm dit is (nog) niet het einde, maar gelukkig kan je nog verder lopen
         """.trimIndent()
@@ -141,7 +141,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //stap 6 r2
-                Position(6, row), setOf(Direction.LEFT, Direction.RIGHT),
+                Position(6, row), setOf(Direction.WEST, Direction.EAST),
                 """
             Hmmm dit is (nog steeds) niet het einde, maar je kan nog verder.
         """.trimIndent()
@@ -149,7 +149,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
         )
         infos.add(
             PositionInfo( //The End
-                Position(7, row), setOf(Direction.LEFT),
+                Position(7, row), setOf(Direction.WEST),
                 """
             Woohooo! dit is het eindpunt. Je hebt nu een paar basis principes van Kotlin geleerd (for-loop en if-statement).
             In het volgende level moet je dit slimmer gaan inzetten want dan wordt je minder aan de hand meegenomen.

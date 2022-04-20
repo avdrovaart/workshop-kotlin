@@ -8,7 +8,7 @@ https://any-api.com/  api-Key nodig?
 
 	Server.kt heeft per puzzel de 'map' en hanteert api endpoints:
 		- getPosition()
-		- move(Direction direction) // enum(Direction.FORWARD, Direction.BACK, Direction.LEFT, Direction.RIGHT)
+		- move(Direction direction) // enum(Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST)
 		- resetPuzzle() // reset puzzle and player to to position 0.0
 		- solve(Function answer) // de speler kan weer alle kanten op bewegen 
 		- Een trigger functie server-side dat als je op een positie land deze wordt uitgevoerd. Zo zou je een "dynamisch" stukje aan een maze kunnen toevoegen.
