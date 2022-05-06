@@ -11,10 +11,13 @@ class Maze03 : Maze(UUID.fromString("264cc5b8-b00c-11ec-b909-0242ac120002"), Pos
     override fun generateMaze(): List<PositionInfo> {
         val infos = mutableListOf<PositionInfo>()
         // START
-        infos.add(PositionInfo(Position(7, 0), setOf(Direction.NORTH),
-            ("Welkom in je derde maze. In dit level zijn meerdere routes mogelijk, echter, niet alle routes zijn haalbaar " +
-                    "met de hoeveelheid stamina die je hebt. Kies je route wijzelijk!")
-        ))
+        infos.add(
+            PositionInfo(
+                Position(7, 0), setOf(Direction.NORTH),
+                ("Welkom in je derde maze. In dit level zijn meerdere routes mogelijk, echter, niet alle routes zijn haalbaar " +
+                        "met de hoeveelheid stamina die je hebt. Kies je route wijselijk!")
+            )
+        )
 
         // X = 0
         infos.add(PositionInfo(Position(0, 9), setOf(Direction.EAST, Direction.NORTH), ("Stap gezet.")))
@@ -169,8 +172,13 @@ class Maze03 : Maze(UUID.fromString("264cc5b8-b00c-11ec-b909-0242ac120002"), Pos
         infos.add(PositionInfo(Position(11, 19), setOf(Direction.SOUTH, Direction.NORTH, Direction.WEST), ("Stap gezet.")))
         infos.add(PositionInfo(Position(11, 20), setOf(Direction.SOUTH, Direction.NORTH), ("Stap gezet.")))
         infos.add(
-            PositionInfo(Position(11, 21), setOf(Direction.SOUTH), ("Einde. Code voor het volgende level is: ..."), true
-        ))
+            PositionInfo(
+                Position(11, 21),
+                setOf(Direction.SOUTH),
+                ("Einde. Code voor het volgende level is: a3f67367-c70a-45c2-8708-8e9df70a1954"),
+                true
+            )
+        )
 
         // X = 12
         infos.add(PositionInfo(Position(12, 1), setOf(Direction.EAST, Direction.WEST), ("Stap gezet.")))

@@ -11,6 +11,8 @@ const val BRIDGE = "Je hebt een extra stap in dezelfde richting gedaan omdat je 
 const val TELEPORTED = "Je stapte een teleport in en bent weer terug waar je begonnen bent."
 const val ONEWAY = "Je bent van een richel afgesprongen helaas kan je niet weer terug naar de plek waar je vandaan kwam."
 const val UNDER_BRIDGE = "Als je naar boven kijkt lijkt het wel alsof er een pad loopt."
+const val END_OF_MAZE =
+    "Dit is een van de eindpunten van dit maze en ook het einde van de workshop. Veel plezier met het gebruiken van je opgedane kennis."
 
 class MazeLoop : Maze(UUID.fromString("a3f67367-c70a-45c2-8708-8e9df70a1954"), Position(10, 10), Player(1000)) {
 
@@ -61,7 +63,7 @@ class MazeLoop : Maze(UUID.fromString("a3f67367-c70a-45c2-8708-8e9df70a1954"), P
         infos.add(
             PositionInfo(
                 Position(2, 11), setOf(Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST), """
-                    Links van je zie je een soort van spiegel, als je goed inkijkt lijkt het wel alsof je jezelf 
+                    Ten westen van je zie je een soort van spiegel, als je goed inkijkt lijkt het wel alsof je jezelf 
                     in de verte kan zien staan. Wat zou er gebeuren als je die kant op gaat
                     """.trimIndent(), offsets = mapOf(Direction.WEST to MoveOffsetInfo(10, 0, TELEPORTED))
             )
@@ -241,9 +243,9 @@ class MazeLoop : Maze(UUID.fromString("a3f67367-c70a-45c2-8708-8e9df70a1954"), P
             )
         ) // Brug naar rechts
         infos.add(PositionInfo(Position(10, 9), setOf(Direction.NORTH, Direction.SOUTH), ""))
-        infos.add(PositionInfo(Position(10, 10), setOf(Direction.SOUTH, Direction.WEST), "", true)) // End of maze
+        infos.add(PositionInfo(Position(10, 10), setOf(Direction.SOUTH, Direction.WEST), END_OF_MAZE, true)) // End of maze
         infos.add(PositionInfo(Position(10, 11), setOf(Direction.WEST, Direction.EAST), ""))
-        infos.add(PositionInfo(Position(10, 12), setOf(Direction.NORTH, Direction.WEST), "", true)) // End of maze
+        infos.add(PositionInfo(Position(10, 12), setOf(Direction.NORTH, Direction.WEST), END_OF_MAZE, true)) // End of maze
         infos.add(PositionInfo(Position(10, 13), setOf(Direction.NORTH, Direction.SOUTH), ""))
         infos.add(
             PositionInfo(
@@ -264,7 +266,7 @@ class MazeLoop : Maze(UUID.fromString("a3f67367-c70a-45c2-8708-8e9df70a1954"), P
         infos.add(
             PositionInfo(
                 Position(11, 2), setOf(Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST), """
-                Boven je zie je een soort van spiegel, als je goed inkijkt lijkt het wel alsof je jezelf 
+                Ten noorden van je zie je een soort van spiegel, als je goed inkijkt lijkt het wel alsof je jezelf 
                 in de verte kan zien staan. Wat zou er gebeuren als je die kant op gaat
                 """.trimIndent(), offsets = mapOf(Direction.SOUTH to MoveOffsetInfo(0, 10, TELEPORTED))
             )
@@ -289,7 +291,7 @@ class MazeLoop : Maze(UUID.fromString("a3f67367-c70a-45c2-8708-8e9df70a1954"), P
         infos.add(
             PositionInfo(
                 Position(11, 20), setOf(Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST), """
-                Onder je zie je een soort van spiegel, als je goed inkijkt lijkt het wel alsof je jezelf 
+                Ten zuiden van je zie je een soort van spiegel, als je goed inkijkt lijkt het wel alsof je jezelf 
                 in de verte kan zien staan. Wat zou er gebeuren als je die kant op gaat
                 """.trimIndent(), offsets = mapOf(Direction.NORTH to MoveOffsetInfo(0, -10, TELEPORTED))
             )
@@ -311,9 +313,9 @@ class MazeLoop : Maze(UUID.fromString("a3f67367-c70a-45c2-8708-8e9df70a1954"), P
             )
         ) // Brug naar links
         infos.add(PositionInfo(Position(12, 9), setOf(Direction.NORTH, Direction.SOUTH), ""))
-        infos.add(PositionInfo(Position(12, 10), setOf(Direction.SOUTH, Direction.EAST), "", true)) // End of maze
+        infos.add(PositionInfo(Position(12, 10), setOf(Direction.SOUTH, Direction.EAST), END_OF_MAZE, true)) // End of maze
         infos.add(PositionInfo(Position(12, 11), setOf(Direction.WEST, Direction.EAST), ""))
-        infos.add(PositionInfo(Position(12, 12), setOf(Direction.NORTH, Direction.EAST), "", true)) // End of maze
+        infos.add(PositionInfo(Position(12, 12), setOf(Direction.NORTH, Direction.EAST), END_OF_MAZE, true)) // End of maze
         infos.add(PositionInfo(Position(12, 13), setOf(Direction.NORTH, Direction.SOUTH), ""))
         infos.add(
             PositionInfo(
@@ -492,7 +494,7 @@ class MazeLoop : Maze(UUID.fromString("a3f67367-c70a-45c2-8708-8e9df70a1954"), P
         infos.add(
             PositionInfo(
                 Position(20, 11), setOf(Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST), """
-                Rechts van je zie je een soort van spiegel, als je goed inkijkt lijkt het wel alsof je jezelf 
+                Ten oosten van je zie je een soort van spiegel, als je goed inkijkt lijkt het wel alsof je jezelf 
                 in de verte kan zien staan. Wat zou er gebeuren als je die kant op gaat
                 """.trimIndent(), offsets = mapOf(Direction.EAST to MoveOffsetInfo(-10, 0, TELEPORTED))
             )

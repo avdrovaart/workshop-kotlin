@@ -26,7 +26,7 @@ class Maze02 : Maze(UUID.fromString("6bec1ac2-ad66-4a9e-aff7-52581d1008e7"), com
             PositionInfo(
                 Position(0, 1),
                 setOf(Direction.NORTH, Direction.SOUTH),
-                "Er zit hier rechts een deur maar die zit op slot.",
+                "Er zit hier rechts (oost) een deur maar die zit op slot.",
                 puzzle = puzzle1
             )
         )
@@ -34,7 +34,7 @@ class Maze02 : Maze(UUID.fromString("6bec1ac2-ad66-4a9e-aff7-52581d1008e7"), com
             PositionInfo(
                 Position(0, 2),
                 setOf(Direction.SOUTH),
-                "Hier ligt een sleutel, deze heb je opgepakt en zit nu in je inventory.",
+                "Hier ligt een sleutel, deze heb je automatisch opgepakt en zit nu in je inventory.",
                 items = setOf("key")
             )
         )

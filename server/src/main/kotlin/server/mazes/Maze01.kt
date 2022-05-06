@@ -26,7 +26,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
             
             Dit is het eerste level. Om naar de uitgang te komen moet je in dit level een aantal stappen in verschillende richtingen verplaatsen.
             Dit kan je doen door aan de client een regel toe te voegen die de server aanspoort om je te verplaatsen.
-            Als eerste moet er een stap naar boven gedaan worden.
+            Als eerste moet er een stap naar het noorden gedaan worden.
             Voor het gemak: ApiSync.move(mazeId, Direction.NORTH)
             Vervolgens wil je de info weten van de positie waar je bent dus vraag je die op: ApiSync.getCurrentPosition(mazeId)
             En vergeet niet om de informatie van de nieuwe positie te printen naar de console via de printInfo functie.
@@ -39,7 +39,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
                 Position(0, 1), setOf(Direction.SOUTH, Direction.EAST),
                 """
             Je hebt je eerste stapje gezet. Hoera!!!!
-            Nu moet je 4 stappen naar rechts.
+            Nu moet je 4 stappen naar het oosten.
             Dit kan je doen door: ApiSync.move(mazeId, Direction.EAST) 4x achter elkaar te zetten maar mooier is een for-loop.
             for(i in 1..4) {
                 ApiSync.move(mazeId, Direction.EAST)
@@ -51,7 +51,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
             PositionInfo( //stap2
                 Position(1, 1), setOf(Direction.WEST, Direction.EAST),
                 """
-            Nog 3 stappen naar rechts te gaan.
+            Nog 3 stappen naar het oosten te gaan.
         """.trimIndent()
             )
         )
@@ -59,7 +59,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
             PositionInfo( //stap3
                 Position(2, 1), setOf(Direction.WEST, Direction.EAST),
                 """
-            Nog 2 stappen naar rechts te gaan.
+            Nog 2 stappen naar het oosten te gaan.
         """.trimIndent()
             )
         )
@@ -67,7 +67,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
             PositionInfo( //stap4
                 Position(3, 1), setOf(Direction.WEST, Direction.EAST),
                 """
-            Nog 1 stap naar rechts te gaan.
+            Nog 1 stap naar het oosten te gaan.
         """.trimIndent()
             )
         )
@@ -75,11 +75,11 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
             PositionInfo( //stap5
                 Position(4, 1), setOf(Direction.WEST, Direction.NORTH),
                 """
-            Yes je bent weer op een beslis punt. Nu moet je een aantal stappen omhoog gaan lopen (ergens tussen de 1 en 6). 
+            Yes je bent weer op een beslis punt. Nu moet je een aantal stappen naar het noorden gaan lopen (ergens tussen de 1 en 6). 
             Maar ja hoeveel het er zijn dat weet niemand......
             Wanneer je een stap hebt gelopen en je de positie info opvraagt dan kan je zien welke richtingen je allemaal mag oplopen.
             Dit zou je kunnen gebruiken tot je aan het eind bent door iedere keer een stap te zetten en vervolgens te kijken of je nog verder kan.
-            if(info.allowedDirections.contains(Direction.NORTH)) { /*verplaats naar boven*/ } else { /*stoppen met de loop*/ }
+            if(info.allowedDirections.contains(Direction.NORTH)) { /*verplaats naar het noorden*/ } else { /*stoppen met de loop*/ }
             Hierbij is info de opgehaalde positie info.  
         """.trimIndent()
             )
@@ -100,7 +100,7 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
             PositionInfo( //stap 6
                 Position(4, row), setOf(Direction.SOUTH, Direction.WEST, Direction.EAST),
                 """
-            Je bent beland op een splitsing. Nu moet je een keuze gaan maken of je links of rechts af gaat.
+            Je bent beland op een splitsing. Nu moet je een keuze gaan maken of je naar het westen of naar het oosten gaat.
             Aan het eind van de gang is het einde van het level.
             Maak een wijze keuze.
         """.trimIndent()
@@ -152,7 +152,6 @@ class Maze01 : Maze(UUID.fromString("94e2254e-5c5d-4395-b807-8ac3d713e1b3"), Pos
                 Position(7, row), setOf(Direction.WEST),
                 """
             Woohooo! dit is het eindpunt. Je hebt nu een paar basis principes van Kotlin geleerd (for-loop en if-statement).
-            In het volgende level moet je dit slimmer gaan inzetten want dan wordt je minder aan de hand meegenomen.
             Het ID van het volgende level is: 6bec1ac2-ad66-4a9e-aff7-52581d1008e7
         """.trimIndent(), true
             )
