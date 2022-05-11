@@ -2,7 +2,7 @@ package client
 
 import common.MazeInfo
 
-private const val MAZE_ID_LEVEL1 = "1be61571-828f-4a18-b318-54cabac31412"
+private const val MAZE_ID_LEVEL1 = "94e2254e-5c5d-4395-b807-8ac3d713e1b3"
 
 fun main() {
     val mazeId = MAZE_ID_LEVEL1
