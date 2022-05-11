@@ -14,7 +14,7 @@ class Maze03 : Maze(UUID.fromString("264cc5b8-b00c-11ec-b909-0242ac120002"), Pos
         infos.add(
             PositionInfo(
                 Position(7, 0), setOf(Direction.NORTH),
-                ("Welkom in je derde maze. In dit level zijn meerdere routes mogelijk, echter, niet alle routes zijn haalbaar " +
+                ("Welkom in je vierde maze. In dit level zijn meerdere routes mogelijk, echter, niet alle routes zijn haalbaar " +
                         "met de hoeveelheid stamina die je hebt. Kies je route wijselijk!")
             )
         )

@@ -6,6 +6,7 @@ fun createMazes(): List<Maze> {
     mazes.add(Maze02())
     mazes.add(Maze03())
     mazes.add(MazeLoop())
+    mazes.add(MazePuzzle())
     mazes.forEach(Maze::reset)
     return mazes
 }
