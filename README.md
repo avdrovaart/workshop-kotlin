@@ -1,58 +1,55 @@
 # workshop-kotlin
 
-https://play.kotlinlang.org/koans/overview
+## Opzetten workspace
+Onderstaande handleiding is gemaakt voor een IntelliJ IDEA workspace. Het is handig dat je minimaal support hebt voor Kotlin en 
+Gradle. Mocht je deze plugins/functionaliteit niet aan hebben staan, doe dit dan alsnog en herstart je IDE.
 
-https://any-api.com/  api-Key nodig?
+### Repository clonen
+Clone de volgende repo naar een map op je lokale schijf: https://github.com/avdrovaart/workshop-kotlin.git
 
-## Puzzel functionaliteiten
+### Nieuw Gradle project maken
+Het workshop-kotlin project is een Gradle project. Let hierop bij het aanmaken van je IntelliJ project!
 
-	Server.kt heeft per puzzel de 'map' en hanteert api endpoints:
-		- getPosition()
-		- move(Direction direction) // enum(Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST)
-		- resetPuzzle() // reset puzzle and player to to position 0.0
-		- solve(Function answer) // de speler kan weer alle kanten op bewegen 
-		- Een trigger functie server-side dat als je op een positie land deze wordt uitgevoerd. Zo zou je een "dynamisch" stukje aan een maze kunnen toevoegen.
-		- Voorkomen van bruteforce oplossingen door een max steps toe te voegen en voordat verplaatst wordt deze te controleren en dan in de response (MazeInfo) ook aangeven dat max aantal stappen zijn bereikt
-	
-	Client.kt 
-		- invulling van de speler	
+* Ga in IntelliJ naar File > New > Project from existing sources...
+* Kies de map waar je de workshop-kotlin gecloned hebt
+* Kies in de volgende stap bij het importeren van external model voor 'Gradle'
+* Klik op Finish
 
-## Onderwerpen
+## Instructie
+In deze workshop ga je puzzels oplossen in de vorm van een doolhof. De applicatie is een client/server-model, en je kunt door 
+de doolhoven navigeren door commando's te sturen naar de server.
 
-	Kotlin Workshop
-		1) Client aan de praat krijgen
-		
-		2) flow control
-			- if else
-			- for loop
-			- switch case
-		Puzzel(s):
-		2.a) 	vraag positie op, 
-			beweeg vooruit,
-			vind de uitgang,
-			(optioneel voor extra uitdaging: max. aantal stappen).
-		
-		5) Collections
-			- sequences
-			- Operations
-		Puzzel(s):
-		5.a) 	sla positie op
-		
-		4) iets met classes
-			- nested inner
-			- companion objects
-			- sealed classes
-		Puzzel(s):
-		4.a) 	maak player class met een invetory inner class en sla sleutel op
-		
-		3) functions
-			- lambda's
-			- inline functions
-		Puzzel(s): 
-		3.a)	lambda of inline function opsturen om een deur te openen
-		
-		
-		6) async Programming
-			- coroutines
-		Puzzel(s):
-		6.a) 	Twee knoppen tegelijker tijd in drukken. (volatile)
+### Server
+De server hoef je enkel eenmalig te starten en deze onthoudt je state. Het is voor deze workshop niet nodig om aanpassingen
+te maken in de server (ook niet stiekem spieken naar de source!). De server start je door rechtsboven in je run configuration 
+'ServerKt' te selecteren en op run (groene pijltje) te klikken. Je workspace bouwen met Gradle is niet nodig.
+
+### Client
+De aanpassingen voor deze server maak je uitsluitend in de client. De client staat in ``client/src/main/kotlin/client/Client.kt``.
+De client run je door rechtsboven in je run configuration 'ClientKt' te selecteren en op run (groene pijltje) te klikken.
+
+Nog een aantal pointers om je op weg te helpen:
+* Er zijn meerdere levels (ook wel mazes genoemd). Elk level heeft zijn eigen UUID. Aan het begin van de client kun je het UUID van 
+het level meegeven. We hebben het UUID van het eerste level alvast ingevuld. Bij het behalen van een level krijg je een nieuw UUID
+van het volgende level.
+* Gebruik de ```printInfo()``` methode om handig de output van de server naar je console te laten printen.
+* De server ondersteunt de volgende API calls:
+  * ```move()``` - hiermee beweeg je door het doolhof
+  * ```use()``` - hiermee gebruik je een item
+  * ```solve()``` - hiermee los je een puzzel op/geef je een wachtwoord in
+  * ```getCurrentPosition()``` - hiermee haal je je huidige positie op binnen het doolhof
+  * ```resetMaze()``` - hiermee reset je de state van de server (handig als je bijv. vast zit)
+* Sommige levels hebben stamina. Dit houdt in dat je maximaal aantal stappen beperkt zijn. Kies je route dus wijselijk!
+
+Was dit teveel informatie? Maak je niet druk! De server helpt je vaak ook een handje op weg hoe je de API calls moet gebruiken.
+
+### Hoe nu verder?
+Doel van de workshop is om alle doolhoven op te lossen. Sommige zijn makkelijker dan andere. Je kunt natuurlijk elk doolhof brute
+forcen (en in het ergste geval zelfs in Java). Echter, probeer zoveel mogelijk slimme functies te programmeren in Kotlin om uit 
+de doolhoven te komen.
+
+Mocht je echt helemaal onbekend zijn met Kotlin, dan staat hier een kleine introductie en cheat sheet:
+* https://kotlinlang.org/docs/basic-syntax.html#print-to-the-standard-output
+* https://devhints.io/kotlin
+
+Voor vragen kun je terecht bij Alexander, Joshua of Bas.
