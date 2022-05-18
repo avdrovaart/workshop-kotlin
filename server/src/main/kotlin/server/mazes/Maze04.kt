@@ -7,7 +7,7 @@ import server.model.PositionInfo
 import java.util.*
 
 
-class Maze03 : Maze(UUID.fromString("264cc5b8-b00c-11ec-b909-0242ac120002"), Position(7, 0), Player(53)) {
+class Maze04 : Maze(UUID.fromString("264cc5b8-b00c-11ec-b909-0242ac120002"), Position(7, 0), Player(53)) {
     override fun generateMaze(): List<PositionInfo> {
         val infos = mutableListOf<PositionInfo>()
         // START

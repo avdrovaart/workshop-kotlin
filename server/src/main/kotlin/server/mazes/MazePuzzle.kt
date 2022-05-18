@@ -264,7 +264,7 @@ class MazePuzzle : Maze(UUID.fromString("1be61571-828f-4a18-b318-54cabac31412"),
                 
                 OPDRACHT:
                 In Kotlin bestaat het 'Nothing' type. Dit kan gebruikt worden voor functies die altijd een Exception gooien. De 
-                compipler weet door dit type dat de functie geen return type heeft (zelfs geen Unit). Pas de code uit de voorbereiding
+                compiler weet door dit type dat de functie geen return type heeft (zelfs geen Unit). Pas de code uit de voorbereiding
                 aan zodat het compileert. Maak hier gebruik van het 'Nothing' type. Bekijk eventueel ook de Kotlin syntax voor 
                 het Nothing type (https://kotlinlang.org/docs/exceptions.html#the-nothing-type) als je er niet uitkomt.""".trimIndent(),
             "Je hebt de opdracht opgelost. Je kunt nu verder naar het oosten voor je volgende opdracht."
@@ -314,7 +314,7 @@ class MazePuzzle : Maze(UUID.fromString("1be61571-828f-4a18-b318-54cabac31412"),
                 setOf(Direction.WEST),
                 """
                     Nu ben je hopelijk iets wijzer geworden over Kotlin. Als je nog meer puzzels wilt doen, ga dan naar: 
-                    https://play.kotlinlang.org/koans/. Dit is de code voor het volgende level: 1be61571-828f-4a18-b318-54cabac31412""".trimIndent(),
+                    https://play.kotlinlang.org/koans/. Dit is de code voor het volgende level: 264cc5b8-b00c-11ec-b909-0242ac120002""".trimIndent(),
                 true
             )
         )
