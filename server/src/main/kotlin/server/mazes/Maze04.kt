@@ -129,7 +129,7 @@ class Maze04 : Maze(UUID.fromString("264cc5b8-b00c-11ec-b909-0242ac120002"), Pos
         infos.add(PositionInfo(Position(8, 17), setOf(Direction.NORTH, Direction.SOUTH), ("Stap gezet.")))
         infos.add(PositionInfo(Position(8, 18), setOf(Direction.NORTH, Direction.SOUTH), ("Stap gezet.")))
         infos.add(PositionInfo(Position(8, 19), setOf(Direction.NORTH, Direction.SOUTH, Direction.EAST), ("Stap gezet.")))
-        infos.add(PositionInfo(Position(8, 20), setOf(Direction.NORTH, Direction.WEST), ("Stap gezet.")))
+        infos.add(PositionInfo(Position(8, 20), setOf(Direction.SOUTH, Direction.WEST), ("Stap gezet.")))
 
         // X = 9
         infos.add(PositionInfo(Position(9, 1), setOf(Direction.EAST, Direction.NORTH), ("Stap gezet.")))
