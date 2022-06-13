@@ -9,5 +9,6 @@ data class MazeInfo(
     val text: String,
     val inventory: List<String> = emptyList(),
     val endOfMaze: Boolean = false,
-    val neededItems: Set<String> = emptySet()
+    val neededItems: Set<String> = emptySet(),
+    val stamina: Int = 0
 )

@@ -40,28 +40,19 @@ fun main() {
                         val id = getMazeIdFromCall()
                         val maze = mazes[id]
                         if (maze != null) {
-                            if (maze.player.Statistics().checkStamina()) {
-                                call.respond(
-                                    MazeInfo(
-                                        maze.currentPosition(),
-                                        maze.allowedDirections(),
-                                        maze.info(),
-                                        maze.player.Inventory().getInventory(),
-                                        maze.endOfMaze(),
-                                        maze.neededItems()
-                                    )
+                            call.respond(
+                                MazeInfo(
+                                    maze.currentPosition(),
+                                    maze.allowedDirections(),
+                                    if (maze.player.Statistics()
+                                            .checkStamina()
+                                    ) maze.info() else maze.info() + "\nJe hebt geen energie meer om door te gaan",
+                                    maze.player.Inventory().getInventory(),
+                                    maze.endOfMaze(),
+                                    maze.neededItems(),
+                                    maze.player.stamina
                                 )
-                            } else {
-                                call.respond(
-                                    MazeInfo(
-                                        null,
-                                        setOf(),
-                                        "Je hebt geen energie meer om door te gaan",
-                                        emptyList(),
-                                        true
-                                    )
-                                )
-                            }
+                            )
                         } else {
                             call.respond(MazeInfo(null, setOf(), "Onbekend level"))
                         }

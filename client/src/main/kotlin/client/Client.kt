@@ -17,6 +17,7 @@ fun printInfo(info: MazeInfo) {
     println("Toegestane richtingen: ${info.allowedDirections}")
     println("Inventory: ${info.inventory}")
     println("Benodigde items: ${info.neededItems}")
+    println("Stamina: ${info.stamina}")
     println("Text: ${info.text}")
     println("=============================================================================")
 }
